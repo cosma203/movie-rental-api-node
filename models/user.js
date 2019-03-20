@@ -1,7 +1,7 @@
-const config = require("config");
-const jwt = require("jsonwebtoken");
-const Joi = require("joi");
-const mongoose = require("mongoose");
+const config = require('config');
+const jwt = require('jsonwebtoken');
+const Joi = require('joi');
+const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -34,12 +34,12 @@ userSchema.methods.generateAuthToken = function() {
       email: this.email,
       isAdmin: this.isAdmin
     },
-    config.get("jwtPrivateKey")
+    config.get('jwtPrivateKey')
   );
   return token;
 };
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model('User', userSchema);
 
 function validateUser(user) {
   const schema = {

@@ -1,45 +1,45 @@
-const { Genre } = require("./models/genre");
-const { Movie } = require("./models/movie");
-const mongoose = require("mongoose");
-const config = require("config");
+const { Genre } = require('./models/genre');
+const { Movie } = require('./models/movie');
+const mongoose = require('mongoose');
+const config = require('config');
 
 const data = [
   {
-    name: "Comedy",
+    name: 'Comedy',
     movies: [
-      { title: "Airplane", numberInStock: 5, dailyRentalRate: 2 },
-      { title: "The Hangover", numberInStock: 10, dailyRentalRate: 2 },
-      { title: "Wedding Crashers", numberInStock: 15, dailyRentalRate: 2 }
+      { title: 'Airplane', numberInStock: 5, dailyRentalRate: 2 },
+      { title: 'The Hangover', numberInStock: 10, dailyRentalRate: 2 },
+      { title: 'Wedding Crashers', numberInStock: 15, dailyRentalRate: 2 }
     ]
   },
   {
-    name: "Action",
+    name: 'Action',
     movies: [
-      { title: "Die Hard", numberInStock: 5, dailyRentalRate: 2 },
-      { title: "Terminator", numberInStock: 10, dailyRentalRate: 2 },
-      { title: "The Avengers", numberInStock: 15, dailyRentalRate: 2 }
+      { title: 'Die Hard', numberInStock: 5, dailyRentalRate: 2 },
+      { title: 'Terminator', numberInStock: 10, dailyRentalRate: 2 },
+      { title: 'The Avengers', numberInStock: 15, dailyRentalRate: 2 }
     ]
   },
   {
-    name: "Romance",
+    name: 'Romance',
     movies: [
-      { title: "The Notebook", numberInStock: 5, dailyRentalRate: 2 },
-      { title: "When Harry Met Sally", numberInStock: 10, dailyRentalRate: 2 },
-      { title: "Pretty Woman", numberInStock: 15, dailyRentalRate: 2 }
+      { title: 'The Notebook', numberInStock: 5, dailyRentalRate: 2 },
+      { title: 'When Harry Met Sally', numberInStock: 10, dailyRentalRate: 2 },
+      { title: 'Pretty Woman', numberInStock: 15, dailyRentalRate: 2 }
     ]
   },
   {
-    name: "Thriller",
+    name: 'Thriller',
     movies: [
-      { title: "The Sixth Sense", numberInStock: 5, dailyRentalRate: 2 },
-      { title: "Gone Girl", numberInStock: 10, dailyRentalRate: 2 },
-      { title: "The Others", numberInStock: 15, dailyRentalRate: 2 }
+      { title: 'The Sixth Sense', numberInStock: 5, dailyRentalRate: 2 },
+      { title: 'Gone Girl', numberInStock: 10, dailyRentalRate: 2 },
+      { title: 'The Others', numberInStock: 15, dailyRentalRate: 2 }
     ]
   }
 ];
 
 async function seed() {
-  await mongoose.connect(config.get("db"));
+  await mongoose.connect(config.get('db'));
 
   await Movie.deleteMany({});
   await Genre.deleteMany({});
@@ -55,7 +55,7 @@ async function seed() {
 
   mongoose.disconnect();
 
-  console.info("Done!");
+  console.info('Done!');
 }
 
 seed();
